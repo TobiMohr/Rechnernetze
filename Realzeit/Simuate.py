@@ -11,7 +11,8 @@ SIMULATION_TIME = 3200
 ENDE = 1800
 
 
-def create_kunde(name, time_next, event_time):
+def create_kunde(name, time_next):
+    event_time = 0
     kundennummer = 1
     while event_time <= ENDE:
         liste = list()
@@ -41,8 +42,8 @@ wurst.start()
 kaese.start()
 kasse.start()
 
-kunde1 = threading.Thread(target=create_kunde, args=("A", 200 / DEBUG, 0))
-kunde2 = threading.Thread(target=create_kunde, args=("B", 60 / DEBUG, 1))
+kunde1 = threading.Thread(target=create_kunde, args=("A", 200 / DEBUG))
+kunde2 = threading.Thread(target=create_kunde, args=("B", 60 / DEBUG))
 
 Ergebnis.time_start = datetime.datetime.now()
 kunde1.start()
